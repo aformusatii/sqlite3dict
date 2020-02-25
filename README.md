@@ -25,7 +25,7 @@ with Storage("test.sqlite") as store:
         "resident": "BOOLEAN"
     }
 
-    # This creates the table only if it does not exist already
+    # This creates the table (collection) only if it does not exist already
     collection = store.init_collection("test", definitions)
     
     # Insert data
@@ -54,11 +54,11 @@ with Storage("test.sqlite") as store:
     }).where("age = 25").execute()
     
     # Simple query for data
-    list = collection.query().where("age = 15").execute()
+    list = collection.query().where("age = 15").limit(10).offset(0).execute()
     for item in list:
         print("item:", item)
     
-    # Delete data
+    # Delete data by given criteria
     collection.delete().where("age = 15").execute()
     
     # Native SQL query in case you still need it
