@@ -65,7 +65,8 @@ with Storage("test.sqlite") as store:
     items = store.query_native("select * from test")
     for item in items:
         print("native item:", item)
-        
+    
+    # Drop table (collection)    
     store.delete_collection("test") 
 ```
 
