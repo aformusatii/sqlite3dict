@@ -7,7 +7,7 @@ Main scope of this project:
 - Elimintate the need to work with SQL DDL
 
 Sample code:
-```
+```python
 from storage.storage import Storage
 
 from datetime import datetime
