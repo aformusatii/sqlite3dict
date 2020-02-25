@@ -54,7 +54,7 @@ with Storage("test.sqlite") as store:
     }).where("age = 25").execute()
     
     # Simple query for data
-    list = collection.query().where("age = 15").limit(10).offset(0).execute()
+    list = collection.query().where("age = 15").limit(10).offset(0).order("createdate", "ASC").order("ID").execute()
     for item in list:
         print("item:", item)
     
