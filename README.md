@@ -8,7 +8,7 @@ Main scope of this project:
 
 Sample code:
 ```python
-from storage.storage import Storage
+from sqlite3dict import Storage
 
 from datetime import datetime
 
@@ -34,7 +34,12 @@ with Storage("test.sqlite") as store:
         "age": 25, 
         "amount": 100.23, 
         "createdate": datetime.now(),
-        "resident": True
+        "resident": True,
+        "additional": {
+            "prop1": 1,
+            "prop2": 1,
+            "other": ["A", "B"]
+        }
     })
     
     collection.insert({
@@ -54,13 +59,7 @@ with Storage("test.sqlite") as store:
     }).where("age = 25").execute()
     
     # Simple query for data
-    list = collection.query()
-                     .where("age = 15")
-                     .limit(10)
-                     .offset(0)
-                     .order("createdate", "ASC")
-                     .order("ID")
-                     .execute()
+    list = collection.query().where("age = 15").limit(10).offset(0).order("createdate", "ASC").order("ID").execute()
                      
     for item in list:
         print("item:", item)

@@ -1,5 +1,6 @@
 import sqlite3
-from storage.collection import Collection
+
+from .collection import Collection
 
 class Storage:
     

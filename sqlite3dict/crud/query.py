@@ -1,4 +1,4 @@
-import common.safejson as json
+from .safejson import SafeJson as json
 
 # ******************************************************************************
 # * Query Class

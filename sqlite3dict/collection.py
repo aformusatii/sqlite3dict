@@ -1,7 +1,7 @@
-from crud.insert import Insert
-from crud.query import Query
-from crud.delete import Delete
-from crud.update import Update
+from .crud.insert import Insert
+from .crud.query import Query
+from .crud.delete import Delete
+from .crud.update import Update
 
 # ******************************************************************************
 # * Collection Class

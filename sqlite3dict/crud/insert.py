@@ -1,5 +1,6 @@
 import uuid
-import common.safejson as json
+
+from .safejson import SafeJson as json
 
 # ******************************************************************************
 # * Insert Class

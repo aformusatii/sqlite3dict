@@ -1,4 +1,4 @@
-from storage.storage import Storage
+from sqlite3dict import Storage
 
 from datetime import datetime
 
@@ -15,14 +15,21 @@ with Storage("test.sqlite") as store:
         "resident": "BOOLEAN"
     }
 
-    collection = store.init_collection("main", definitions)
+    # This creates the table (collection) only if it does not exist already
+    collection = store.init_collection("test", definitions)
     
+    # Insert data
     collection.insert({
         "name": "John Doe", 
         "age": 25, 
         "amount": 100.23, 
         "createdate": datetime.now(),
-        "resident": True
+        "resident": True,
+        "additional": {
+            "prop1": 1,
+            "prop2": 1,
+            "other": ["A", "B"]
+        }
     })
     
     collection.insert({
@@ -33,24 +40,28 @@ with Storage("test.sqlite") as store:
         "resident": True
     })
     
-    # list = collection.query().where("col1 = 'test adfdsaf'").limit(10).order("ID", "DESC").execute()
-    
+    # Update inserted data by given criteria
     collection.update().data({
         "createdate": datetime.now(), 
         "age": 15, 
         "amount": 99.38, 
         "resident": False
-    }).where("age = 10").execute()
+    }).where("age = 25").execute()
     
-    list = collection.query().execute()
+    # Simple query for data
+    list = collection.query().where("age = 15").limit(10).offset(0).order("createdate", "ASC").order("ID").execute()
+                     
     for item in list:
         print("item:", item)
     
-    # collection.delete().where("col1 = 'test adfdsaf'").execute()
+    # Delete data by given criteria
+    collection.delete().where("age = 15").execute()
     
-    items = store.query_native("select * from main")
+    # Native SQL query in case you still need it
+    items = store.query_native("select * from test")
     for item in items:
         print("native item:", item)
-        
-    store.delete_collection("main")    
+    
+    # Drop table (collection)    
+    store.delete_collection("test") 
     

@@ -1,5 +1,5 @@
-from crud.query import Query
-import common.safejson as json
+from .query import Query
+from .safejson import SafeJson as json
 
 # ******************************************************************************
 # * Update Class
