@@ -1,12 +1,17 @@
+# sqlite3dict
+
 Wrapper around sqlite3 which allows working simply with python dictionaries as well as combining it with sql syntax. 
 
-Main scope of this project:
-- Simple store for json documents combined with fast searching capabilities of Sqlite3
-- Support big volumes of data (millions of records)
-- Combine best features of NOSQL and SQL
-- Elimintate the need to work with SQL DDL
+## Installation
 
-Sample code:
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install sqlite3dict.
+
+```bash
+pip install sqlite3dict
+```
+
+## Usage
+
 ```python
 from sqlite3dict import Storage
 
@@ -76,3 +81,8 @@ with Storage("test.sqlite") as store:
     store.delete_collection("test") 
 ```
 
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
