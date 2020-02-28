@@ -2,15 +2,18 @@ import json
 
 from datetime import datetime
 
-class SafeJson:
+class SafeJsonClass:
 
     # ************************************************************
-    def dumps(obj):
+    def dumps(self, obj):
         return json.dumps(obj, default = custom_converted)
     
     # ************************************************************        
-    def loads(obj):
+    def loads(self, obj):
         return json.loads(obj)
+
+# ************************************************************        
+SafeJson = SafeJsonClass()
         
 # ************************************************************
 def custom_converted(obj):
