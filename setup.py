@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="sqlite3dict", # Replace with your own username
-    version="0.0.3",
+    version="1.0.0",
     author="aformusatii",
     author_email="aformusatii@gmail.com",
     description="Wrapper around sqlite3 to work with dictionaries",
@@ -17,10 +17,22 @@ setuptools.setup(
     install_requires=[],
     use_2to3=True,
     classifiers=[
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 3",
+        "Intended Audience :: Developers",
+        "Intended Audience :: System Administrators",
         "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
+        "Topic :: Database",
+        "Topic :: Database :: Database Engines/Servers",
+        "Topic :: Utilities",
+        "Programming Language :: Python :: 2",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.3",
+        "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.5",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: Implementation :: CPython",
+        "Programming Language :: Python :: Implementation :: PyPy",
+        "Operating System :: OS Independent"
     ]
-    # python_requires='>=2.7',
 )
