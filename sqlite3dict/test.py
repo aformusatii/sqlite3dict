@@ -1,4 +1,4 @@
-from sqlite3dict import Storage
+from .storage import Storage
 
 from datetime import datetime
 
@@ -6,6 +6,8 @@ from datetime import datetime
 # * Test
 # ******************************************************************************
 with Storage("test.sqlite") as store:
+
+    print('sadfdsaf')
 
     definitions = {
         "name": "TEXT", 
@@ -49,7 +51,7 @@ with Storage("test.sqlite") as store:
     }).where("age = 25").execute()
     
     # Simple query for data
-    list = collection.query().where("age = 15").limit(10).offset(0).order("createdate", "ASC").order("ID").execute()
+    list = collection.query().where("age = ? or age = ?", [10, 15]).limit(10).offset(0).order("createdate", "ASC").order("ID").execute()
                      
     for item in list:
         print("item:", item)
@@ -64,3 +66,4 @@ with Storage("test.sqlite") as store:
     
     # Drop table (collection)    
     store.delete_collection("test") 
+    

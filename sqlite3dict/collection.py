@@ -20,7 +20,7 @@ class Collection:
         
     # ==========================================================================
     def query(self):
-        return Query(self.table_name, self.storage)
+        return Query(self.table_name, self.table_meta, self.storage)
         
     # ==========================================================================
     def delete(self):

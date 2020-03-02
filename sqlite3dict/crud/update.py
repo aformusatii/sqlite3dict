@@ -42,7 +42,7 @@ class Update:
     # ==========================================================================
     def execute(self):
         
-        query = Query(self.table_name, self.storage)
+        query = Query(self.table_name, self.table_meta, self.storage)
         
         items = query.where(self.p_where).execute()
         

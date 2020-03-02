@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="sqlite3dict", # Replace with your own username
-    version="1.0.0",
+    version="1.0.1",
     author="aformusatii",
     author_email="aformusatii@gmail.com",
     description="Wrapper around sqlite3 to work with dictionaries",
